@@ -1,0 +1,11 @@
+{
+  "name": "releasation",
+  "version": "0.0.1",
+  "description": "visualisation of MEL relase train",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.10.2",
+    "lodash": "^4.17.2",
+    "socket.io": "^1.5.1"
+  }
+}

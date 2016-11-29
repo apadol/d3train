@@ -1,0 +1,22 @@
+{
+  "name": "d3train",
+  "description": "visualisation of MEL relase train",
+  "main": "index.js",
+  "license": "MIT",
+  "moduleType": [
+    "globals"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "^3.3.13",
+    "lodash": "~4.17.2"
+  }
+}
