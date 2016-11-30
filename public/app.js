@@ -40,6 +40,7 @@ function init(data){
         .attr("r", function(d) { return radius - .75 + d.value})
         .style("fill", function(d) { return colorcoding[d.status]; })
         .style("stroke", function(d) { return d3.rgb(colorcoding[d.status]).darker(); })
+        .attr("class", function(d) { return "status-" + d.status })
         .call(force.drag);
 
     var texts = svg.selectAll("text.label")
@@ -93,6 +94,7 @@ function update(data){
       .attr("r", function(d) { return radius - .75 + d.value});
   node.style("fill", function(d) { return colorcoding[d.status];})
       .style("stroke", function(d) { return d3.rgb(colorcoding[d.status]).darker(); })
+      .attr("class", function(d) { return "status-" + d.status })
       .call(force.drag);
 
   node.exit().remove();

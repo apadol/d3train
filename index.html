@@ -7,7 +7,7 @@
     <script src="/lodash/lodash.js"></script>
     <script>
       var width = 1100,
-          height = 500,
+          height = 300,
           radius = 6;
 
       var colorcoding = {
@@ -28,25 +28,73 @@
       });
     </script>
 
-    http://mel.ui.ioki.pl/assets/newngmel/web/css/common-app-main.css
+    <link rel="stylesheet" href="mel.css">
     <style>
+
       body > svg{
         display: block;
         margin: 0 auto;
       }
 
+      .status-progress{
+        animation: pulse 1s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.5;
+        }
+      }
+
       circle {
-        stroke-width: 1.5px;
+        stroke-width: 2.5px;
       }
 
       line {
         stroke: #999;
         stroke-width: 1.5px;
       }
+
+      header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding:10px;
+        color:white;
+      }
+
+      section{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        min-height: 100px;
+        font-size:30px;
+      }
+
+      header img{
+        height:36px;
+      }
+
+      header h1{
+        font-size: 30px;
+      }
     </style>
   </head>
   <body>
-    <h1 id="versionHeading">Wersja</h1>
+    <header class="source_header">
+      <img src="http://mel.ui.ioki.pl/assets/myLabLogo.png">
+      <h1>Release Train</h1>
+    </header>
+    <section>
+      <h2 id="versionHeading">Wersja</h2>
+    </section>
     <script src="app.js"></script>
   </body>
 </html>
