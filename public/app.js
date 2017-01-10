@@ -7,12 +7,12 @@ function initd3(){
   fill = d3.scale.category20();
 
   force = d3.layout.force()
-      .charge(-500)
+      .charge(500)
       .gravity(0)
-      .linkDistance(80)
+      .linkDistance(120)
       .size([width, height]);
 
-  svg = d3.select("body").append("svg")
+  svg = d3.select("#train-graph").append("svg")
       .attr("width", width)
       .attr("height", height);
 
@@ -41,7 +41,6 @@ function init(data){
         .style("fill", function(d) { return colorcoding[d.status]; })
         .style("stroke", function(d) { return d3.rgb(colorcoding[d.status]).darker(); })
         .attr("class", function(d) { return "status-" + d.status })
-        .call(force.drag);
 
     var texts = svg.selectAll("text.label")
         .data(jsonModel.nodes)
@@ -66,17 +65,17 @@ function init(data){
       var k = 6 * e.alpha;
 
       link
-          .attr("x1", function(d) { return d.source.x; })
+          .attr("x1", function(d) { return (d.source.x * width) -50 ; })
           .attr("y1", function(d) { return d.source.y; })
-          .attr("x2", function(d) { return d.target.x; })
+          .attr("x2", function(d) { return (d.target.x * width) -50 ; })
           .attr("y2", function(d) { return d.target.y; });
 
       node
-          .attr("cx", function(d) { return d.x; })
+          .attr("cx", function(d) { return (d.x * width) -50 ; })
           .attr("cy", function(d) { return d.y; });
 
       texts.attr("transform", function(d) {
-          return "translate(" + d.x + "," + (d.y - d.value - 10) + ")";
+          return "translate(" + (d.x * width - 50) + "," + (d.y - d.value - 10) + ")";
       });
 
     }
@@ -95,7 +94,6 @@ function update(data){
   node.style("fill", function(d) { return colorcoding[d.status];})
       .style("stroke", function(d) { return d3.rgb(colorcoding[d.status]).darker(); })
       .attr("class", function(d) { return "status-" + d.status })
-      .call(force.drag);
 
   node.exit().remove();
 }

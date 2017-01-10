@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="d3/d3.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lodash/lodash.js"></script>
+    <script defer src="app.js"></script>
+
+    <script>
+      var width = window.innerWidth-100,
+          height = 150,
+          radius = 6;
+
+      var colorcoding = {
+        "idle": '#dbdbdb',
+        "progress": '#daebf0',
+        "pause": '#ffb81c',
+        "blocked": "#007fa3",
+        "OK": "#84bd00",
+        "fail": "#db0020", 
+        "undefined": '#dbdbdb'
+      }
+
+      var socket = io();
+      socket.on('status change', function(msg){ update(msg.body) });
+      socket.on('release', function(msg){
+       initd3();
+       init(msg.body)
+      });
+    </script>
+
+    
+    <link rel="stylesheet" href="mel.css">
+    <link rel="stylesheet" href="train.css">
+
+  </head>
+  <body>
+    <header class="source_header">
+      <img src="http://mel.ui.ioki.pl/assets/myLabLogo.png">
+      <h1>Release Train</h1>
+    </header>
+
+    <div id="train-content">
+      <section>
+        <h2 id="versionHeading">Wersja</h2>
+      </section>
+
+      <div id="train-graph"></div>
+
+      <ul id="labels">
+        <li class="color-idle">idle</li>
+        <li class="color-progress">progress</li>
+        <li class="color-pause">pause</li>
+        <li class="color-blocked">blocked</li>
+        <li class="color-OK">OK</li>
+        <li class="color-fail">fail</li>
+      </ul>
+    </div>
+  </body>
+</html>
