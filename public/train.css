@@ -1,0 +1,103 @@
+body{
+  display: flex;
+  flex-direction: column;
+}
+
+#train-content{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+}
+
+body > svg{
+  display: block;
+  margin: 0 auto;
+}
+
+.status-progress{
+  animation: pulse 1s infinite;
+}
+
+circle {
+  stroke-width: 2.5px;
+}
+
+line {
+  stroke: #999;
+  stroke-width: 1.5px;
+}
+
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding:10px;
+  color:white;
+}
+
+section{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size:30px;
+}
+
+#train-graph{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+header img{
+  height:36px;
+}
+
+header h1{
+  font-size: 30px;
+}
+
+#labels{
+  display: block;
+  width: 50%;
+  margin: 20px auto 0 auto;
+  text-align: center;
+}
+
+#labels li{
+  display:inline-block;
+  padding:8px;
+  margin:4px;
+}
+
+#labels .color-idle{
+  background-color: #dbdbdb;
+}
+#labels .color-progress{
+  background-color: #daebf0;
+}
+#labels .color-pause{
+  background-color: #ffb81c;
+}
+#labels .color-blocked{
+  background-color: #007fa3;
+}
+#labels .color-OK{
+  background-color: #84bd00;
+}
+#labels .color-fail{
+  background-color: #db0020;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
